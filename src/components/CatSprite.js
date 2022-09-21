@@ -1,12 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { positionSliceActions } from "../store/positionSlice";
 
 export default function CatSprite() {
   const catRef = useRef();
   const position = useSelector((state) => state.position);
+  const rotation = useSelector((state) => state.rotation);
+  const dispatch = useDispatch();
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
+
+  useEffect(() => {
+    if (position.isRandom) {
+      setTop(position.yPosition);
+      setLeft(position.xPosition);
+    } else {
+      setTop((prevState) => prevState + position.yPosition);
+      setLeft((prevState) => prevState + position.xPosition);
+    }
+  }, [position.yPosition, position.xPosition]);
 
   useEffect(() => {
     const rect = catRef.current.getBoundingClientRect();
@@ -14,13 +27,15 @@ export default function CatSprite() {
       catRef.current.parentNode.parentNode.getBoundingClientRect();
     setTop(parentRect.height / 2 - rect.height / 2);
     setLeft(parentRect.width / 2 - rect.width / 2);
-    // console.log(rect, parentRect);
+    dispatch(
+      positionSliceActions.updateMaxPosition({
+        left: parentRect.width / 2 - rect.width / 2,
+        top: parentRect.height / 2 - rect.height / 2,
+      })
+    );
+    console.log(rect, parentRect);
   }, []);
 
-  useEffect(() => {
-    setTop((prevState) => prevState + position.yPosition);
-    setLeft((prevState) => prevState + position.xPosition);
-  }, [position]);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +45,12 @@ export default function CatSprite() {
       version="1.1"
       xmlSpace="preserve"
       ref={catRef}
-      style={{ top: top, left: left, position: "absolute" }}
+      style={{
+        top: top,
+        left: left,
+        position: "absolute",
+        transform: `rotate(${rotation.degree}deg)`,
+      }}
     >
       <g>
         <g id="Page-1" stroke="none" fillRule="evenodd">

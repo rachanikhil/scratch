@@ -2,10 +2,12 @@
   height: 21px;
   width: 27px;
   border-radius: 10px;
+  padding: 2px;
   margin: 2px;
+  color: black;
   border: none;
 }
 
 .input:focus {
-    border: none;
+  border: none;
 }
