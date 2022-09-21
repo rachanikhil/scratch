@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialLookState = { text: "Hello", duration: 2, isGreetClicked: false };
+const initialLookState = {
+  text: "Hello",
+  duration: 2,
+  isGreetClicked: false,
+  size: { width: 0, height: 0 },
+  addedSize: {width: 0, height: 0},
+};
 
 const lookSlice = createSlice({
   initialState: initialLookState,
@@ -19,6 +25,12 @@ const lookSlice = createSlice({
     updateIsGreetClicked(state, action) {
       state.isGreetClicked = action.payload;
     },
+    updateSize(state, action) {
+      state.size = action.payload;
+    },
+    updateAddedSize(state, action) {
+        state.addedSize = action.payload;
+    }
   },
 });
 

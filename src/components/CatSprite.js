@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { positionSliceActions } from "../store/positionSlice";
+import { lookSliceActions } from "../store/lookSlice";
 
 export default function CatSprite() {
   const catRef = useRef();
   const position = useSelector((state) => state.position);
   const rotation = useSelector((state) => state.rotation);
+  const { size, addedSize } = useSelector((state) => state.looks);
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -33,6 +35,9 @@ export default function CatSprite() {
         top: parentRect.height / 2 - rect.height / 2,
       })
     );
+    dispatch(
+      lookSliceActions.updateSize({ width: rect.width, height: rect.height })
+    );
     console.log(rect, parentRect);
   }, []);
 
@@ -50,6 +55,8 @@ export default function CatSprite() {
         left: left,
         position: "absolute",
         transform: `rotate(${rotation.degree}deg)`,
+        width: addedSize.width > 0 &&  `${addedSize.width}px`,
+        height: addedSize.height > 0 && `${addedSize.height}px`,
       }}
     >
       <g>

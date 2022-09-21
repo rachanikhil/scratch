@@ -21,16 +21,25 @@ const Looks = () => {
     dispatch(lookSliceActions.updateIsGreetClicked(true));
   };
 
-  const thinkForTwoSec=()=>{
+  const thinkForTwoSec = () => {
     dispatch(lookSliceActions.updateText("hmm"));
     dispatch(lookSliceActions.updateDuration(2));
     dispatch(lookSliceActions.updateIsGreetClicked(true));
-  }
-  const thinkHmm=()=>{
+  };
+  const thinkHmm = () => {
     dispatch(lookSliceActions.updateText("hmm"));
     dispatch(lookSliceActions.updateDuration(-1));
     dispatch(lookSliceActions.updateIsGreetClicked(true));
-  }
+  };
+
+  const changeSizeBy10 = () => {
+    const { size, addedSize } = looks;
+    const increasedSize = {
+      width: addedSize.width > 0 ? addedSize.width * 1.1 : size.width * 1.1,
+      height: addedSize.height > 0 ? addedSize.height * 1.1 : size.height * 1.1,
+    };
+    dispatch(lookSliceActions.updateAddedSize(increasedSize));
+  };
   return (
     <div>
       <div className="font-bold"> Looks</div>
@@ -69,10 +78,16 @@ const Looks = () => {
       >
         Say Hello
       </div>
-      <div onClick={thinkForTwoSec} className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        onClick={thinkForTwoSec}
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         Think hmm for 2 seconds
       </div>
-      <div onClick={thinkHmm} className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        onClick={thinkHmm}
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         think hmm..
       </div>
       <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
@@ -87,7 +102,10 @@ const Looks = () => {
       <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         next backdrop
       </div>
-      <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        onClick={changeSizeBy10}
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         change size by 10
       </div>
       <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
