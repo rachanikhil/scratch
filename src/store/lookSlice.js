@@ -5,7 +5,9 @@ const initialLookState = {
   duration: 2,
   isGreetClicked: false,
   size: { width: 0, height: 0 },
-  addedSize: {width: 0, height: 0},
+  addedSize: { width: 0, height: 0 },
+  colorValue: {r:255, g: 171, b: 25},
+  isCatVisible: true,
 };
 
 const lookSlice = createSlice({
@@ -29,8 +31,11 @@ const lookSlice = createSlice({
       state.size = action.payload;
     },
     updateAddedSize(state, action) {
-        state.addedSize = action.payload;
-    }
+      state.addedSize = action.payload;
+    },
+    updateColor(state, action) {
+      state.colorValue = action.payload;
+    },
   },
 });
 
