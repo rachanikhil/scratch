@@ -63,6 +63,12 @@ const Looks = () => {
   const setZeroColorEffect = () => {
     dispatch(lookSliceActions.updateColor({ r: 255, g: 171, b: 25 }));
   };
+  const showCat = () => {
+    dispatch(lookSliceActions.updateIsCatVisible(true));
+  };
+  const hideCat = () => {
+    dispatch(lookSliceActions.updateIsCatVisible(false));
+  };
   return (
     <div>
       <div className="font-bold"> Looks</div>
@@ -149,10 +155,16 @@ const Looks = () => {
       >
         set color effect to 0
       </div>
-      <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        onClick={showCat}
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         show
       </div>
-      <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        onClick={hideCat}
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         hide
       </div>
       <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">

@@ -6,7 +6,7 @@ const initialLookState = {
   isGreetClicked: false,
   size: { width: 0, height: 0 },
   addedSize: { width: 0, height: 0 },
-  colorValue: {r:255, g: 171, b: 25},
+  colorValue: { r: 255, g: 171, b: 25 },
   isCatVisible: true,
 };
 
@@ -35,6 +35,9 @@ const lookSlice = createSlice({
     },
     updateColor(state, action) {
       state.colorValue = action.payload;
+    },
+    updateIsCatVisible(state, action) {
+      state.isCatVisible = action.payload;
     },
   },
 });

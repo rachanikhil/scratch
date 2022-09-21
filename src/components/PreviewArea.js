@@ -19,7 +19,7 @@ export default function PreviewArea() {
   return (
     <div className="flex-none h-full overflow-y-auto p-2">
       {looks.isGreetClicked && <p>{looks.text}</p>}
-      <CatSprite />
+      {looks.isCatVisible && <CatSprite />}
     </div>
   );
 }
