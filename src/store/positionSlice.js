@@ -5,6 +5,7 @@ const initialPositionState = {
   yPosition: 0,
   maxLeft: 0,
   maxTop: 0,
+  isRandom: false,
 };
 
 const positionSlice = createSlice({
@@ -22,9 +23,18 @@ const positionSlice = createSlice({
       state.yPosition = action.payload.y;
     },
     updateMaxPosition(state, action) {
-       state.maxLeft = action.payload.left;
-       state.maxTop = action.payload.top; 
-    }
+      state.maxLeft = action.payload.left;
+      state.maxTop = action.payload.top;
+    },
+    updateRandom(state, action) {
+      state.isRandom = action.payload;
+    },
+    changePositionX(state, action) {
+      state.xPosition = action.payload;
+    },
+    changePositionY(state, action) {
+      state.yPosition = action.payload;
+    },
   },
 });
 
