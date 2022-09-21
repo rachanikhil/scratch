@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { useSelector } from "react-redux";
+
 export default function CatSprite() {
   const catRef = useRef();
+  const position = useSelector((state) => state.position);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
+
   useEffect(() => {
     const rect = catRef.current.getBoundingClientRect();
     const parentRect =
@@ -12,6 +16,11 @@ export default function CatSprite() {
     setLeft(parentRect.width / 2 - rect.width / 2);
     // console.log(rect, parentRect);
   }, []);
+
+  useEffect(() => {
+    setTop((prevState) => prevState + position.yPosition);
+    setLeft((prevState) => prevState + position.xPosition);
+  }, [position]);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

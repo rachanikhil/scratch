@@ -1,12 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import Icon from "./Icon";
 import classes from "./Motion.module.css";
+import { positionSliceActions } from "../store/positionSlice";
 
 const Motion = () => {
+  const dispatch = useDispatch();
+  const moveTenSteps = () => {
+    dispatch(positionSliceActions.updatePositionX(10));
+  };
   return (
     <div>
       <div className="font-bold"> {"Motion"} </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        onClick={moveTenSteps}
+        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         {"Move 10 steps"}
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
@@ -27,31 +36,31 @@ const Motion = () => {
         {"go to x:"}
         <input className={classes.input} />
         {" y:"}
-        <input className={classes.input}/>
+        <input className={classes.input} />
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         {"glide "}
-        <input className={classes.input}/>
+        <input className={classes.input} />
         {" secs to random position"}
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         {"glide "}
-        <input className={classes.input}/>
+        <input className={classes.input} />
         {"secs to x: "}
-        <input className={classes.input}/>
+        <input className={classes.input} />
         {"y:"}
-        <input className={classes.input}/>
+        <input className={classes.input} />
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         {"Point in direction "}
-        <input className={classes.input}/>
+        <input className={classes.input} />
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         {"Point towards mousePointer "}
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         {"Change x by "}
-        <input className={classes.input}/>
+        <input className={classes.input} />
       </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         {"change y by "}
