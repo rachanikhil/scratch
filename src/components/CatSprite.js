@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function CatSprite() {
+  const catRef = useRef();
+  const [top, setTop] = useState(0);
+  const [left, setLeft] = useState(0);
+  useEffect(() => {
+    const rect = catRef.current.getBoundingClientRect();
+    const parentRect =
+      catRef.current.parentNode.parentNode.getBoundingClientRect();
+    setTop(parentRect.height / 2 - rect.height / 2);
+    setLeft(parentRect.width / 2 - rect.width / 2);
+    // console.log(rect, parentRect);
+  }, []);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +20,8 @@ export default function CatSprite() {
       viewBox="0.3210171699523926 0.3000000357627869 95.17898101806641 100.04156036376953"
       version="1.1"
       xmlSpace="preserve"
+      ref={catRef}
+      style={{ top: top, left: left, position: "absolute" }}
     >
       <g>
         <g id="Page-1" stroke="none" fillRule="evenodd">
