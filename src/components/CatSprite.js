@@ -9,6 +9,7 @@ export default function CatSprite() {
   const position = useSelector((state) => state.position);
   const rotation = useSelector((state) => state.rotation);
   const { size, addedSize } = useSelector((state) => state.looks);
+  const [catSize, setCatSize] = useState("");
   const dispatch = useDispatch();
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -35,6 +36,7 @@ export default function CatSprite() {
         top: parentRect.height / 2 - rect.height / 2,
       })
     );
+    setCatSize({ width: rect.width, height: rect.height });
     dispatch(
       lookSliceActions.updateSize({ width: rect.width, height: rect.height })
     );
@@ -55,8 +57,12 @@ export default function CatSprite() {
         left: left,
         position: "absolute",
         transform: `rotate(${rotation.degree}deg)`,
-        width: addedSize.width > 0 &&  `${addedSize.width}px`,
-        height: addedSize.height > 0 && `${addedSize.height}px`,
+        width:
+          addedSize.width > 0 ? `${addedSize.width}px` : `${catSize.width}px`,
+        height:
+          addedSize.height > 0
+            ? `${addedSize.height}px`
+            : `${catSize.height}px`,
       }}
     >
       <g>

@@ -40,6 +40,9 @@ const Looks = () => {
     };
     dispatch(lookSliceActions.updateAddedSize(increasedSize));
   };
+  const setSizeTo100=()=>{
+    dispatch(lookSliceActions.updateAddedSize({width:0, height: 0}));
+  }
   return (
     <div>
       <div className="font-bold"> Looks</div>
@@ -108,7 +111,7 @@ const Looks = () => {
       >
         change size by 10
       </div>
-      <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div onClick={setSizeTo100} className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
         set size to 100%
       </div>
       <div className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
