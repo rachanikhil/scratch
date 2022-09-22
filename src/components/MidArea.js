@@ -16,9 +16,9 @@ export default function MidArea(props) {
     setNames((prevState) => [...prevState, id]);
   };
   const catEvents = (e) => {
-    names.forEach((name) => {
+    names.forEach((name, ind) => {
       let element = document.getElementById(name);
-      element.click();
+      element.click(e, names.slice(ind, names.length));
     });
   };
   return (

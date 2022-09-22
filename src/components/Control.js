@@ -6,12 +6,18 @@ const Control = () => {
     console.log("dragstart:", id);
     ev.dataTransfer.setData("id", id);
   };
+  const waitFor1Sec = (e, names) => {
+    setTimeout(() => {
+      console.log(names, e);
+    }, 1000);
+  };
   return (
     <div>
       <div className="font-bold"> {"Control"} </div>
       <div
         id="wait1sec"
         onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        onClick={(e) => waitFor1Sec(e)}
         draggable
         className="flex flex-row flex-wrap bg-red-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
