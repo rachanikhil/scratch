@@ -70,10 +70,17 @@ const Motion = () => {
     dispatch(positionSliceActions.changePositionY(parseInt(y, 10)));
   };
 
+  const onDragStart = (ev, id) => {
+    console.log("dragstart:", id);
+    ev.dataTransfer.setData("id", id);
+  };
+
   return (
     <div>
       <div className="font-bold"> {"Motion"} </div>
       <div
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         id="move10Steps"
         onClick={moveTenSteps}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
@@ -81,6 +88,8 @@ const Motion = () => {
         {"Move 10 steps"}
       </div>
       <div
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         id="turn15DegreeRight"
         onClick={turn15DegreeRight}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
@@ -91,6 +100,8 @@ const Motion = () => {
       </div>
       <div
         id="turn15DegreeLeft"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={turn15DegreeLeft}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -100,6 +111,8 @@ const Motion = () => {
       </div>
       <div
         id="goToRandomPosition"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={goToRandomPosition}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -107,6 +120,8 @@ const Motion = () => {
       </div>
       <div
         id="goToXandYPosition"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={goToXandYPosition}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -125,6 +140,8 @@ const Motion = () => {
       </div>
       <div
         id="glideToRandomPosition"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"glide "}
@@ -133,6 +150,8 @@ const Motion = () => {
       </div>
       <div
         id="glideToXandYposition"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"glide "}
@@ -152,6 +171,8 @@ const Motion = () => {
       </div>
       <div
         id="pointIndirection"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={pointIndirection}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -164,6 +185,8 @@ const Motion = () => {
       </div>
       <div
         id="inTheDirectionOfMouse"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={inTheDirectionOfMouse}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -171,6 +194,8 @@ const Motion = () => {
       </div>
       <div
         id="updatePositoionOnX"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={updatePositoionOnX}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -183,6 +208,8 @@ const Motion = () => {
       </div>
       <div
         id="updatePositoionOnY"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={updatePositoionOnY}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -195,12 +222,16 @@ const Motion = () => {
       </div>
       <div
         id="bounceOnEdge"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"if on edge, bounce "}
       </div>
       <div
         id="setRotationStyle"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"set rotation style left-right "}

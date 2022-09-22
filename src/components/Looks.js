@@ -69,11 +69,17 @@ const Looks = () => {
   const hideCat = () => {
     dispatch(lookSliceActions.updateIsCatVisible(false));
   };
+  const onDragStart = (ev, id) => {
+    console.log("dragstart:", id);
+    ev.dataTransfer.setData("id", id);
+  };
   return (
     <div>
       <div className="font-bold"> Looks</div>
       <div
         id="sayHelloForTime"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={(e) => {
           e.stopPropagation();
           limitedHello();
@@ -104,6 +110,8 @@ const Looks = () => {
       </div>
       <div
         id="sayHello"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={sayHello}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -111,6 +119,8 @@ const Looks = () => {
       </div>
       <div
         id="thinkForTwoSec"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={thinkForTwoSec}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -118,6 +128,8 @@ const Looks = () => {
       </div>
       <div
         id="thinkHmm"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={thinkHmm}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -125,30 +137,40 @@ const Looks = () => {
       </div>
       <div
         id="switchCostume"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         Switch costume to costume1
       </div>
       <div
         id="nextCostume"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         next costume
       </div>
       <div
         id="changebackdrop"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         switch backdrop to backdrop1
       </div>
       <div
         id="nextBackdrop"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         next backdrop
       </div>
       <div
         id="changeSizeBy10"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={changeSizeBy10}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -156,6 +178,8 @@ const Looks = () => {
       </div>
       <div
         id="setSizeTo100"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={setSizeTo100}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -163,6 +187,8 @@ const Looks = () => {
       </div>
       <div
         id="changeColorEffectBy25"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={changeColorEffectBy25}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -170,6 +196,8 @@ const Looks = () => {
       </div>
       <div
         id="setZeroColorEffect"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={setZeroColorEffect}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -177,6 +205,8 @@ const Looks = () => {
       </div>
       <div
         id="showCat"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={showCat}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -184,6 +214,8 @@ const Looks = () => {
       </div>
       <div
         id="hideCat"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         onClick={hideCat}
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -191,6 +223,8 @@ const Looks = () => {
       </div>
       <div
         id="goToFrontLayer"
+        onDragStart={(e) => onDragStart(e, e.currentTarget.id)}
+        draggable
         className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         go to front layer
