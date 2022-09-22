@@ -74,12 +74,14 @@ const Motion = () => {
     <div>
       <div className="font-bold"> {"Motion"} </div>
       <div
+        id="move10Steps"
         onClick={moveTenSteps}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"Move 10 steps"}
       </div>
       <div
+        id="turn15DegreeRight"
         onClick={turn15DegreeRight}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -88,6 +90,7 @@ const Motion = () => {
         {"15 degrees"}
       </div>
       <div
+        id="turn15DegreeLeft"
         onClick={turn15DegreeLeft}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -96,12 +99,14 @@ const Motion = () => {
         {"15 degrees"}
       </div>
       <div
+        id="goToRandomPosition"
         onClick={goToRandomPosition}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"go to random position"}
       </div>
       <div
+        id="goToXandYPosition"
         onClick={goToXandYPosition}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -118,12 +123,18 @@ const Motion = () => {
           onChange={(e) => setY(e.target.value)}
         />
       </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        id="glideToRandomPosition"
+        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         {"glide "}
         <input className={classes.input} />
         {" secs to random position"}
       </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        id="glideToXandYposition"
+        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         {"glide "}
         <input className={classes.input} />
         {"secs to x: "}
@@ -140,6 +151,7 @@ const Motion = () => {
         />
       </div>
       <div
+        id="pointIndirection"
         onClick={pointIndirection}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -151,12 +163,14 @@ const Motion = () => {
         />
       </div>
       <div
+        id="inTheDirectionOfMouse"
         onClick={inTheDirectionOfMouse}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
         {"Point towards mousePointer "}
       </div>
       <div
+        id="updatePositoionOnX"
         onClick={updatePositoionOnX}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -168,6 +182,7 @@ const Motion = () => {
         />
       </div>
       <div
+        id="updatePositoionOnY"
         onClick={updatePositoionOnY}
         className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
       >
@@ -178,10 +193,16 @@ const Motion = () => {
           onChange={(e) => setY(e.target.value)}
         />
       </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        id="bounceOnEdge"
+        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         {"if on edge, bounce "}
       </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        id="setRotationStyle"
+        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+      >
         {"set rotation style left-right "}
       </div>
     </div>
