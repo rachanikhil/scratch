@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import controlSlice from "./controlSlice";
 import degreeSlice from "./degreeSlice";
 import eventSlice from "./eventSlice";
 import lookSlice from "./lookSlice";
@@ -10,6 +11,7 @@ const store = configureStore({
     rotation: degreeSlice.reducer,
     looks: lookSlice.reducer,
     events: eventSlice.reducer,
+    controls: controlSlice.reducer,
   },
 });
 
