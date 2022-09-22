@@ -1,4 +1,5 @@
 import React from "react";
+import Control from "./Control";
 import Events from "./Events";
 import Looks from "./Looks";
 import Motion from "./Motion";
@@ -9,6 +10,7 @@ export default function Sidebar() {
       <Events />
       <Motion />
       <Looks />
+      <Control />
     </div>
   );
 }
