@@ -8,6 +8,9 @@ module.exports = merge([
   common,
   {
     mode: "production",
+    devServer: {
+      contentBase: "./public",
+    },
     optimization: {
       minimize: true,
       minimizer: [
