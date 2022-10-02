@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { positionSliceActions } from "../store/positionSlice";
 import { lookSliceActions } from "../store/lookSlice";
 
-export default function CatSprite() {
+export default function CatSprite({char_id, setActiveSprite=()=>{}}) {
   const catRef = useRef();
   const position = useSelector((state) => state.position);
   const rotation = useSelector((state) => state.rotation);
@@ -65,6 +65,8 @@ export default function CatSprite() {
             ? `${addedSize.height}px`
             : `${catSize.height}px`,
       }}
+      id={char_id}
+      onClick={(e)=>setActiveSprite(e.currentTarget.id)}
     >
       <g>
         <g id="Page-1" stroke="none" fillRule="evenodd">

@@ -4,6 +4,7 @@ import degreeSlice from "./degreeSlice";
 import eventSlice from "./eventSlice";
 import lookSlice from "./lookSlice";
 import positionSlice from "./positionSlice";
+import spriteSlice from "./spriteSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     looks: lookSlice.reducer,
     events: eventSlice.reducer,
     controls: controlSlice.reducer,
+    sprite: spriteSlice.reducer,
   },
 });
 
